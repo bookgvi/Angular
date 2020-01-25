@@ -1,14 +1,19 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { InterpolationComponent } from './interpolation/interpolation.component';
+import { FormsModule } from "@angular/forms";
 
 
 @NgModule({
-  declarations: [],
+  declarations: [InterpolationComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgbModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: []
+  bootstrap: [InterpolationComponent]
 })
 export class AppModule {
 }
