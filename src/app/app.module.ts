@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { InterpolationComponent } from './interpolation/interpolation.component';
-import { ContactsItemComponent } from './contacts-item/contacts-item.component';
+import { ContactsItemComponent } from './contacts/contacts-item/contacts-item.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { HeroComponent } from './hero/hero.component';
+import { LifeHooksComponent } from './life-hooks/life-hooks.component';
+import { AppComponent } from './app.component';
 
 
 @NgModule({
@@ -11,13 +13,15 @@ import { HeroComponent } from './hero/hero.component';
     InterpolationComponent,
     ContactsItemComponent,
     ContactsComponent,
-    HeroComponent
+    HeroComponent,
+    LifeHooksComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
   ],
   providers: [],
-  bootstrap: [ContactsComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

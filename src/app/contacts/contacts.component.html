@@ -1,16 +1,11 @@
-<div class="container">
-  <div class="row">
-    <p>The name is {{ name }}</p>
-  </div>
-  <div class="row">
-    <div class="col">
-      <label for="inp1">Enter name:
-        <input id="inp1" type="text" [value]="name" (input)="name = $event.target.value" class="pl-1 pr-1"/>
-      </label>
-      <p class="ml-1">QQQ</p>
-    </div>
-  </div>
-  <div class="row mt-1">
-    <contacts-item [(saveContactPerson)]="name"></contacts-item>
-  </div>
+<div class="row">
+  <p>The name is {{ name }}</p>
+</div>
+<div class="row">
+  <label for="inp1">Enter name:
+    <input id="inp1" type="text" [value]="name" (input)="name = $event.target.value" class="pl-1 pr-1"/>
+  </label>
+</div>
+<div class="row mt-1">
+  <contacts-item [(saveContactPerson)]="name"></contacts-item>
 </div>

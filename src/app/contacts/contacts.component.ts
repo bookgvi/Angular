@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['../../style/flex.classes.css']
 })

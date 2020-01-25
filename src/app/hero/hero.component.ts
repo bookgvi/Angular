@@ -3,16 +3,18 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero';
 
 @Component({
-  selector: 'app-root',
+  selector: 'hero',
   template: `
-    <h2>
+    <h2 class="m-0">
       My favorite hero is {{ favHero() }}
     </h2>
-    <ul>
-      <li *ngFor="let hero of heroes">{{ hero.name }}</li>
-    </ul>
+    <div class="col">
+      <ul style="margin: 0;">
+        <li *ngFor="let hero of heroes" (click)="favHeroID = hero.id" class="clickable mt-1">{{ hero.name }}</li>
+      </ul>
+    </div>
   `,
-  styleUrls: ['./hero.component.css']
+  styleUrls: ['./hero.component.css', '../../style/flex.classes.css']
 })
 export class HeroComponent implements OnInit {
   public heroes: Array<Hero>;
