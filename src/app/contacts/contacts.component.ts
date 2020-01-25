@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './contacts.component.html',
-  styleUrls: ['./contacts.component.css']
+  styleUrls: ['../../style/flex.classes.css']
 })
 export class ContactsComponent implements OnInit {
-  name: string;
+  name: string = '';
 
   constructor() {
   }
