@@ -1,20 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { ContactsItemComponent } from './contacts-item/contacts-item.component';
 
 @Component({
   selector: 'contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['../../style/flex.classes.css']
 })
-export class ContactsComponent implements OnInit {
-  name: string = '';
+export class ContactsComponent implements OnInit, AfterViewInit {
+  name: string;
+  @ViewChild(ContactsItemComponent, { static: false })
+  private refToChildComponent: ContactsItemComponent;
 
-  constructor() {
+  ngOnInit(): void {
   }
 
-  ngOnInit() {
-  }
+  ngAfterViewInit(): void {
+    console.log(this.refToChildComponent);
 
-  saveContact(e): void {
-    this.name = e;
+    setTimeout(() => {
+      this.name = `Dirty ${this.refToChildComponent.contactPerson}`;
+    }, 0);
   }
 }

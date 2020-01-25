@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-life-hooks',
+  selector: 'life-hooks',
   templateUrl: './life-hooks.component.html',
   styleUrls: ['./life-hooks.component.css', '../../style/flex.classes.css']
 })
-export class LifeHooksComponent implements OnInit {
+export class LifeHooksComponent implements OnInit, AfterContentInit {
+  @Input() val: number = 222;
 
-  constructor() { }
-
-  ngOnInit() {
+  get _name(): number {
+    return this.val;
   }
 
+  ngOnInit() {
+    console.log('OnInit', this._name);
+  }
+  ngAfterContentInit(): void {
+    console.log('AfterContentInit', this._name);
+  }
 }
