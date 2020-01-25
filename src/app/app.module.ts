@@ -17,7 +17,7 @@ import { HeroComponent } from './hero/hero.component';
     BrowserModule,
   ],
   providers: [],
-  bootstrap: [HeroComponent]
+  bootstrap: [ContactsComponent]
 })
 export class AppModule {
 }

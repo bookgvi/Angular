@@ -1,15 +1,19 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'contacts-item',
   templateUrl: './contacts-item.component.html',
   styleUrls: ['./contacts-item.component.css']
 })
-export class ContactsItemComponent {
+export class ContactsItemComponent implements OnInit {
   contactPerson = 'Todd';
-  @Output() saveContactPerson = new EventEmitter<string>();
+  @Input() saveContactPerson: string = 'Unknown';
+  @Output() saveContactPersonChange = new EventEmitter<string>();
 
-  sendContactPerson(): void {
-    this.saveContactPerson.emit(this.contactPerson);
+  saveContact(): void {
+    this.saveContactPersonChange.emit(this.contactPerson);
+  }
+
+  ngOnInit(): void {
   }
 }
