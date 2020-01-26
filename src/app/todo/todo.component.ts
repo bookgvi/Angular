@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetDataService } from '../services/get-data.service';
+import { Item } from '../models/todo/todo';
+import { RepositoryService } from '../services/repository.service';
 
 @Component({
   selector: 'app-todo',
@@ -7,11 +9,15 @@ import { GetDataService } from '../services/get-data.service';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  newItem: string = '';
-  constructor(public items: GetDataService) { }
+  public newItem: string = '';
+  public items: Array<Item> = [];
 
-  addItem(action: string): void {
-    action.length ? this.items.addNewTodoItem(action) : null;
+  constructor(public arrItems: RepositoryService) {
+    this.items = arrItems.getArrItems();
+  }
+
+  public addItem(action: string): void {
+    action.length ? this.arrItems.addNewTodoItem(action) : null;
   }
 
   ngOnInit() {

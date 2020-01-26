@@ -14,7 +14,7 @@
           />
         </div>
         <div class="col pl-1 pr-0">
-          <button (click)="addItem(newItem)" class="btn btn-primary w-100">Add</button>
+          <button (click)="addItem(newItem); newItem = ''" class="btn btn-primary w-100">Add</button>
         </div>
       </div>
       <div class="row mt-2">
@@ -28,7 +28,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let item of items.getTodoItems(); let i = index">
+          <tr *ngFor="let item of items; let i = index">
             <td>{{ i + 1 }}</td>
             <td>{{ item.action }}</td>
             <td style="text-align: center;">

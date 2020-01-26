@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PseudoFabricItem, Item } from '../models/todo/todo';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +15,7 @@ export class GetDataService {
       new PseudoFabricItem('Collect Tickets', false)
     ];
   }
-  getTodoItems(): Array<Item> {
-    return this.todoItems;
-  }
-  addNewTodoItem(action: string): void {
-    this.todoItems.push(new PseudoFabricItem(action, false));
+  getTodoItems(): Observable<Item[]> {
+    return of(this.todoItems);
   }
 }
