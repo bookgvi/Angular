@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { GetDataService } from '../services/get-data.service';
-import { Item } from '../models/todo/todo';
 
 @Component({
   selector: 'app-todo',
@@ -11,8 +10,8 @@ export class TodoComponent implements OnInit {
   newItem: string = '';
   constructor(public items: GetDataService) { }
 
-  addItem(action: string): Item {
-    return this.items.addNewTodoItem(action);
+  addItem(action: string): void {
+    action.length ? this.items.addNewTodoItem(action) : null;
   }
 
   ngOnInit() {

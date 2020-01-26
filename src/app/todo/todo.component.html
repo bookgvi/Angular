@@ -6,10 +6,15 @@
     <div class="col">
       <div class="row">
         <div class="col-9 px-0">
-          <input type="text" [(ngModel)]="newItem" class="w-100" />
+          <input
+            type="text"
+            [(ngModel)]="newItem"
+            (keyup.enter)="addItem(newItem); newItem = ''"
+            class="w-100"
+          />
         </div>
         <div class="col pr-0">
-          <button (click)="newItem ? items.getTodoItems().push(addItem(newItem)) : ''" class="w-100">Add</button>
+          <button (click)="addItem(newItem)" class="w-100">Add</button>
         </div>
       </div>
       <div class="row mt-2">

@@ -17,7 +17,7 @@ export class GetDataService {
   getTodoItems(): Array<Item> {
     return this.todoItems;
   }
-  addNewTodoItem(action: string): Item {
-    return new PseudoFabricItem(action, false);
+  addNewTodoItem(action: string): void {
+    this.todoItems.push(new PseudoFabricItem(action, false));
   }
 }
