@@ -10,11 +10,11 @@
             type="text"
             [(ngModel)]="newItem"
             (keyup.enter)="addItem(newItem); newItem = ''"
-            class="w-100"
+            class="form-control w-100"
           />
         </div>
-        <div class="col pr-0">
-          <button (click)="addItem(newItem)" class="w-100">Add</button>
+        <div class="col pl-1 pr-0">
+          <button (click)="addItem(newItem)" class="btn btn-primary w-100">Add</button>
         </div>
       </div>
       <div class="row mt-2">
