@@ -3,7 +3,7 @@ export interface Item {
   done: boolean;
 }
 
-export class FabricItem implements Item {
+export class PseudoFabricItem implements Item {
   constructor(
     public action: string,
     public done: boolean

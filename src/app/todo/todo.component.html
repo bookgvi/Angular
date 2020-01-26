@@ -4,25 +4,39 @@
       <ngb-datepicker #dp outsideDays="hidden"></ngb-datepicker>
     </div>
     <div class="col">
-      <table class="table table-striped table-bordered">
-        <thead>
-        <tr>
-          <th></th>
-          <th>Description</th>
-          <th>Done</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let item of items.getTodoItems(); let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ item.action }}</td>
-          <td [ngSwitch]="item.done">
-            <span *ngSwitchCase="true">Yes</span>
-            <span *ngSwitchDefault>No</span>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="row">
+        <div class="col-9 px-0">
+          <input type="text" [(ngModel)]="newItem" class="w-100" />
+        </div>
+        <div class="col pr-0">
+          <button (click)="newItem ? items.getTodoItems().push(addItem(newItem)) : ''" class="w-100">Add</button>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <table class="table table-striped table-bordered">
+          <thead>
+          <tr>
+            <th></th>
+            <th>Description</th>
+            <th>Done</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of items.getTodoItems(); let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ item.action }}</td>
+            <td style="text-align: center;">
+              <input type="checkbox" [(ngModel)]="item.done"/>
+            </td>
+            <td [ngSwitch]="item.done">
+              <span *ngSwitchCase="true">Yes</span>
+              <span *ngSwitchDefault>No</span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

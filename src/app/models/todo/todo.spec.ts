@@ -1,7 +1,7 @@
-import { Todo } from './todo';
+import { PseudoFabricItem } from './todo';
 
 describe('Todo', () => {
   it('should create an instance', () => {
-    expect(new Todo()).toBeTruthy();
+    expect(new PseudoFabricItem('action', false)).toBeTruthy();
   });
 });
