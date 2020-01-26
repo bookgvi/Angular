@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetDataService } from '../services/get-data.service';
 
 @Component({
   selector: 'app-todo',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoComponent implements OnInit {
 
-  constructor() { }
+  constructor(public items: GetDataService) { }
 
   ngOnInit() {
   }
