@@ -1,9 +1,23 @@
-<div class="navbar navbar-inverse bg-inverse">
-  <a class="navbar-brand">SPORTS STORE</a>
+<div class="row">
+  <div class="col">
+    <div class="navbar navbar-light">
+      <a class="navbar-brand">SPORTS STORE</a>
+    </div>
+  </div>
 </div>
-<div class="col-xs-3 bg-info p-a-1">
-  {{categories.length}} Categories
-</div>
-<div class="col-xs-9 bg-success p-a-1">
-  {{products.length}} Products
+<div class="row">
+  <div class="col-3 bg-info p-1">
+    {{ categories.length }} Categories
+  </div>
+  <div class="col-9">
+    <div *ngFor="let product of products" class="card card-outline-primary">
+      <h4 class="card-header">
+        {{ product.name }}
+        <span class="float-right badge badge-pill badge-primary">
+          {{ product.price | currency:"USD":true:"2.2-2" }}
+        </span>
+      </h4>
+      <div class="card-text p-1">{{ product.description }}</div>
+    </div>
+  </div>
 </div>
