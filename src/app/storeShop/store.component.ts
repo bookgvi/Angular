@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RepositoryService } from '../Services/repository.service';
 import { IProduct } from '../Model/product.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store',
@@ -9,7 +10,10 @@ import { IProduct } from '../Model/product.interface';
 })
 export class StoreComponent implements OnInit {
 
-  constructor(private repo: RepositoryService) {
+  constructor(
+    private repo: RepositoryService,
+    public router: Router
+  ) {
   }
 
   get products(): Array<IProduct> {
@@ -18,6 +22,10 @@ export class StoreComponent implements OnInit {
 
   get categories(): Array<string> {
     return this.repo.getCategories();
+  }
+
+  addToCart(): void {
+    this.router.navigateByUrl('/cart');
   }
 
   ngOnInit() {
