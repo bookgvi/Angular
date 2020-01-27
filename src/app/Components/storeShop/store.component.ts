@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RepositoryService } from '../Services/repository.service';
-import { IProduct } from '../Model/product.interface';
+import { RepositoryService } from '../../Services/repository.service';
+import { IProduct } from '../../Model/product.interface';
 import { Router } from '@angular/router';
 
 @Component({

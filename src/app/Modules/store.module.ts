@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { ModelModule } from './model.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { StoreComponent } from '../storeShop/store.component';
-import { CartComponent } from '../cart/cart.component';
-import { AboutComponent } from '../about/about.component';
+import { StoreComponent } from '../Components/storeShop/store.component';
+import { CartComponent } from '../Components/cart/cart.component';
+import { AboutComponent } from '../Components/about/about.component';
 
 
 @NgModule({
