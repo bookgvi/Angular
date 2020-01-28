@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RepositoryService } from '../../Services/repository.service';
 import { IProduct } from '../../Model/product.interface';
 import { Router } from '@angular/router';
+import { RestDatasourceService } from '../../Services/rest.datasource.service';
 
 @Component({
   selector: 'app-store',
@@ -12,6 +13,7 @@ export class StoreComponent implements OnInit {
 
   constructor(
     private repo: RepositoryService,
+    private restData: RestDatasourceService,
     public router: Router
   ) {
   }

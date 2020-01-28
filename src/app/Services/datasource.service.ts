@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from '../Model/product.interface';
 import { Product } from '../Model/product.model';
-import { Observable, of } from 'rxjs';
+import { Observable, from } from 'rxjs';
 
 @Injectable()
 export class DatasourceService {
@@ -22,6 +22,6 @@ export class DatasourceService {
 
 
   getAll(): Observable<IProduct[]> {
-    return of(this.products);
+    return from([this.products]);
   }
 }
