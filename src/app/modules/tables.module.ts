@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
+import { NgbdTableCompleteModule} from '../components/tables/bootstrap-table/table-complete.module';
 import { TablesComponent } from '../components/tables/tables.component';
-import { BootstrapTableComponent } from '../components/tables/bootstrap-table/bootstrap-table.component';
 
 import { FormsComponent } from '../components/forms/forms.component';
 
@@ -9,11 +9,15 @@ import { ChartsComponent } from '../components/charts/charts.component';
 @NgModule({
   declarations: [
     TablesComponent,
-    BootstrapTableComponent,
     FormsComponent,
     ChartsComponent
   ],
-  imports: []
+  imports: [
+    NgbdTableCompleteModule
+  ],
+  exports: [
+    NgbdTableCompleteModule
+  ]
 })
 export class TablesModule {
 }
