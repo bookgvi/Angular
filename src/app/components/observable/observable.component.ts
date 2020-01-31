@@ -15,7 +15,7 @@ export class ObservableComponent implements OnInit, OnDestroy {
   constructor() {
   }
 
-  public changeVariable(self): number {
+  public changeVariable(): number {
     this.variable = Math.ceil(Math.random() * 256);
     this.subscriber.next(this.variable);
     return this.variable;
