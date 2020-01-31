@@ -6,12 +6,14 @@ import { AppRoutingModule } from './router/app-routing.module';
 import { AppComponent } from './app.component';
 import { ObservableComponent } from './components/observable/observable.component';
 import { SubjectComponent } from './components/subject/subject.component';
+import { ObsWithServiceComponent } from './components/obs-with-service/obs-with-service.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ObservableComponent,
-    SubjectComponent
+    SubjectComponent,
+    ObsWithServiceComponent
   ],
   imports: [
     BrowserModule,
