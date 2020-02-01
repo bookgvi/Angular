@@ -5,9 +5,10 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class GetDataForTableService {
-  private urlForPrimeNgTable: string = '../../assets/data/filesystem.json';
+  private urlForPrimeNgTable: string;
 
   constructor(private http: HttpClient) {
+    this.urlForPrimeNgTable = '../../assets/data/filesystem.json';
   }
 
   getFileSystem(): Observable<object> {

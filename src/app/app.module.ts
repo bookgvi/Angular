@@ -9,7 +9,7 @@ import { TabMenuModule } from 'primeng/tabmenu';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -20,4 +20,5 @@ import { TabMenuModule } from 'primeng/tabmenu';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
