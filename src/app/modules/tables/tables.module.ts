@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { TreeTableModule } from 'primeng/treetable';
 import { CommonModule } from '@angular/common';
+import { TreeTableModule } from 'primeng/treetable';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { GetDataForTableService } from '../../services/get-data-for-table.service';
 
@@ -16,8 +17,9 @@ import { TablePrimeNgComponent } from '../../components/tables/table-prime-ng/ta
   providers: [GetDataForTableService],
   imports: [
     HttpClientModule,
+    CommonModule,
     TreeTableModule,
-    CommonModule
+    BrowserAnimationsModule
   ]
 })
 export class TablesModule {

@@ -1,18 +1,40 @@
-<h3 class="ui-g-12 ui-g-nopad table-title">Base table</h3>
-<p-treeTable [value]="files">
+<p-treeTable
+  #tt
+  [value]="files"
+  [columns]="cols"
+  [paginator]="true"
+  [rows]="10"
+  [totalRecords]="fl"
+  [rowsPerPageOptions]="rowsPerPage"
+>
+  <ng-template pTemplate="caption">
+    <div style="text-align: right">
+      <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+      <input type="text" pInputText size="50" placeholder="Global Filter"
+             (input)="tt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+    </div>
+  </ng-template>
   <ng-template pTemplate="header">
     <tr>
-      <th *ngFor="let col of cols">
+      <th *ngFor="let col of cols" [ttSortableColumn]="col.field">
         {{ col.header }}
+        <p-treeTableSortIcon [field]="col.field"></p-treeTableSortIcon>
+      </th>
+    </tr>
+    <tr>
+      <th *ngFor="let col of cols">
+        <input pInputText type="text" (input)="tt.filter($event.target.value, col.field, col.filterMatchMode)">
       </th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
-    <tr>
+  <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="cols">
+    <tr [ttSelectableRow]="rowNode">
       <td *ngFor="let col of cols; let i = index;">
+        <p-treeTableCheckbox [value]="rowNode" *ngIf="i == 0"></p-treeTableCheckbox>
         <p-treeTableToggler [rowNode]="rowNode" *ngIf="i === 0"></p-treeTableToggler>
         {{ rowData[col.field] }}
       </td>
     </tr>
   </ng-template>
 </p-treeTable>
+

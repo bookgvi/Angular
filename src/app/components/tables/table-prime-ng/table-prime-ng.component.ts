@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetDataForTableService } from '../../../services/get-data-for-table.service';
+import { TreeNode } from '../../../models/data-model';
 
 @Component({
   selector: 'app-table-prime-ng',
@@ -7,7 +8,9 @@ import { GetDataForTableService } from '../../../services/get-data-for-table.ser
   styleUrls: ['./table-prime-ng.component.css']
 })
 export class TablePrimeNgComponent implements OnInit {
-  public files: object;
+  public files: TreeNode[];
+  public fl: number = 0;
+  public rowsPerPage: number[] = [2, 5, 10, 20, 50];
   public cols: object[] = [
     { field: 'name', header: 'Name' },
     { field: 'size', header: 'Size' },
@@ -19,7 +22,8 @@ export class TablePrimeNgComponent implements OnInit {
 
   ngOnInit() {
     this.nodeService.getFileSystem().subscribe(res => {
-      this.files = res;
+      this.files = res as TreeNode[];
+      this.fl = this.files.length;
     });
   }
 
