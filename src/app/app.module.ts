@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { ObservableComponent } from './components/observable/observable.component';
 import { SubjectComponent } from './components/subject/subject.component';
 import { ObsWithServiceComponent } from './components/obs-with-service/obs-with-service.component';
+import { AsyncPipeComponent } from './components/async-pipe/async-pipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ObservableComponent,
     SubjectComponent,
-    ObsWithServiceComponent
+    ObsWithServiceComponent,
+    AsyncPipeComponent
   ],
   imports: [
     BrowserModule,
