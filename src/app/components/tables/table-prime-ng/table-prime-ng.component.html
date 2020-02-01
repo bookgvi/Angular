@@ -1,1 +1,18 @@
-<p>table-prime-ng works!</p>
+<h3 class="ui-g-12 ui-g-nopad table-title">Base table</h3>
+<p-treeTable [value]="files">
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngFor="let col of cols">
+        {{ col.header }}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+    <tr>
+      <td *ngFor="let col of cols; let i = index;">
+        <p-treeTableToggler [rowNode]="rowNode" *ngIf="i === 0"></p-treeTableToggler>
+        {{ rowData[col.field] }}
+      </td>
+    </tr>
+  </ng-template>
+</p-treeTable>
