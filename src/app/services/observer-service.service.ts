@@ -20,8 +20,10 @@ export class ObserverService {
   }
 
   public subject(): object {
-    const subscription = this.observable().subscribe((val: any) => {
+    const subscription: Subscription = this.observable().subscribe({
+      next(val: any) {
       console.log(val);
+    }
     });
     return { obs: this.obs, subscription };
   }
