@@ -1,12 +1,12 @@
 <h3>Drag and Drop to Table</h3>
 <div class="ui-g">
   <div class="ui-g-12 ui-md-6 ui-g-nopad drag-column">
-    <ul style="margin:0; padding:0;">
+    <ul style="margin:0; padding:0; list-style-type: none;">
       <li *ngFor="let car of availableCars" class="auto-card ui-helper-clearfix" pDraggable="cars"
           (onDragStart)="dragStart($event,car)" (onDragEnd)="dragEnd($event)">
-        <i class="fa fa-arrows-alt" style="float:right;"></i>
+        <i class="fa fa-arrows-alt" style="float: right; padding-top: 0.6rem;"></i>
         <img src="https://www.primefaces.org/primeng/assets/showcase/images/demo/car/{{car.brand}}.png"
-             style="float:left" draggable="false" />
+             style="float:left;" draggable="false" />
         <div style="margin:8px 0 0 8px;float:left">{{car.vin}} - {{car.year}}</div>
       </li>
     </ul>
