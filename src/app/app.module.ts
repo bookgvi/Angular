@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { TabMenuModule } from 'primeng/tabmenu';
+
 import { TablesModule } from './modules/tables/tables.module';
+import { ChartsModule } from './modules/charts/charts.module';
 
 import { AppRoutingModule } from './router/app-routing.module';
 
 import { AppComponent } from './app.component';
-import { TabMenuModule } from 'primeng/tabmenu';
-import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { ChartModule } from 'primeng/chart';
     AppRoutingModule,
     TablesModule,
     TabMenuModule,
-    ChartModule
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
