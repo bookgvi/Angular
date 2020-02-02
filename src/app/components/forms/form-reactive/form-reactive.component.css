@@ -1,0 +1,8 @@
+.form-center {
+  display: flex !important;
+  justify-content: center;
+}
+.content-left {
+  display: flex;
+  justify-content: left;
+}
