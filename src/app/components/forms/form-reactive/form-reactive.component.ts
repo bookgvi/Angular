@@ -27,6 +27,13 @@ export class FormReactiveComponent implements OnInit, OnDestroy {
 
   public onSubmit(): void {
     console.log(this.formGroup);
+    this.formGroup.patchValue({
+      lastName: 'Jovani',
+      address: {
+        city: 'Moscow',
+        zip: 111000
+      }
+    });
   }
 
   ngOnInit() {
