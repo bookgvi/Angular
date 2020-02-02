@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TableMainComponent } from '../components/tables/table-main/table-main.component';
-import { ChartsComponent } from '../components/charts-main/charts.component';
+import { ChartsComponent } from '../components/charts/charts-main/charts.component';
 
 const routes: Routes = [
   { path: 'tables', component: TableMainComponent },
