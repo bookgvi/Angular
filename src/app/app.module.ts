@@ -6,6 +6,7 @@ import { AppRoutingModule } from './router/app-routing.module';
 
 import { AppComponent } from './app.component';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TabMenuModule } from 'primeng/tabmenu';
     BrowserModule,
     AppRoutingModule,
     TablesModule,
-    TabMenuModule
+    TabMenuModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
