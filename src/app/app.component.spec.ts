@@ -20,16 +20,16 @@
 //     expect(app).toBeTruthy();
 //   });
 //
-//   it(`should have as title 'URBAX'`, () => {
+//   it(`should have as title 'TablesFormsGraphs'`, () => {
 //     const fixture = TestBed.createComponent(AppComponent);
 //     const app = fixture.debugElement.componentInstance;
-//     expect(app.title).toEqual('URBAX');
+//     expect(app.title).toEqual('TablesFormsGraphs');
 //   });
 //
 //   it('should render title', () => {
 //     const fixture = TestBed.createComponent(AppComponent);
 //     fixture.detectChanges();
 //     const compiled = fixture.debugElement.nativeElement;
-//     expect(compiled.querySelector('.content span').textContent).toContain('URBAX app is running!');
+//     expect(compiled.querySelector('.content span').textContent).toContain('TablesFormsGraphs app is running!');
 //   });
 // });

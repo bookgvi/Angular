@@ -1,0 +1,62 @@
+<h3>Reactive Form</h3>
+<form [formGroup]="formGroup" class="ui-g ui-fluid form-center">
+  <div class="ui-lg-3 ui-md-5 ui-sm-12 ui-g-nopad">
+    <div class="ui-g-12">
+      <label for="firstName" class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input
+          pInputText
+          id="firstName"
+          formControlName="firstName"
+          placeholder="Name"
+        >
+      </label>
+    </div>
+    <div class="ui-g-12">
+      <label for="lastName" class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input
+          pInputText
+          id="lastName"
+          formControlName="lastName"
+          placeholder="Last name"
+        >
+      </label>
+    </div>
+    <div formGroupName="address" class="ui-g-12 ui-g-nopad" style="text-align: left;">
+      <h4 class="ui-g-12" style="margin: 0.5rem; padding: 0;">Address:</h4>
+      <div class="ui-g-12">
+        <label class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="pi pi-tags"></i></span>
+          <input pInputText formControlName="city" placeholder="city">
+        </label>
+      </div>
+      <div class="ui-g-12">
+        <label class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="pi pi-tags"></i></span>
+          <input pInputText formControlName="state" placeholder="state">
+        </label>
+      </div>
+      <div class="ui-g-12">
+        <label class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="pi pi-tags"></i></span>
+          <input pInputText formControlName="zip" placeholder="zip-code">
+        </label>
+      </div>
+      <div class="ui-g-12">
+        <label class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="pi pi-tags"></i></span>
+          <input pInputText formControlName="street" placeholder="Street">
+        </label>
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <button
+        type="button"
+        (click)="onSubmit()"
+        class="ui-g-12"
+      >Submit
+      </button>
+    </div>
+  </div>
+</form>

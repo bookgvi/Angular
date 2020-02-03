@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'URBAX';
+  title = 'TablesFormsGraphs';
+  public items: MenuItem[] = [
+    { label: 'Tables', routerLink: 'tables' },
+    { label: 'Forms', routerLink: 'forms' },
+    { label: 'Charts', routerLink: 'charts' }
+  ];
 }

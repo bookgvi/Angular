@@ -1,8 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './router/app-routing.module';
+import { TabMenuModule } from 'primeng/tabmenu';
 
-import { TablesModule } from './modules/tables.module';
+import { TablesModule } from './modules/tables/tables.module';
+import { ChartsModule } from './modules/charts/charts.module';
+import { FormModule } from './modules/forms/forms.module';
+
+import { AppRoutingModule } from './router/app-routing.module';
 
 import { AppComponent } from './app.component';
 
@@ -13,7 +18,11 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TablesModule
+    BrowserAnimationsModule,
+    TablesModule,
+    TabMenuModule,
+    ChartsModule,
+    FormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,23 +1,2 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">URBAX</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-          aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/tables" routerLinkActive="active">Tables</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/forms" routerLinkActive="active">Forms</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/charts" routerLinkActive="active">Charts</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<div class="container m-3">
-  <router-outlet></router-outlet>
-</div>
+<p-tabMenu [model]="items"></p-tabMenu>
+<router-outlet></router-outlet>
