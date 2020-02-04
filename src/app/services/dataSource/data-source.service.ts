@@ -12,7 +12,7 @@ export class DataSourceService {
         key: 'name',
         value: 'Text1',
         id: 1,
-        isRequired: true
+        isRequired: false
       }),
       new TextBox({
         key: 'email',

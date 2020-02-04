@@ -1,5 +1,13 @@
 <div [formGroup]="form">
   <label [attr.for]="field['id']"> {{ field['key']}}
-    <input [type]="field['type']" [id]="field['id']" [formControlName]="field['key']">
+    <span *ngIf="field['isRequired']" style="color: red;">*&nbsp;</span>
+    <br>
+    <input
+      [type]="field['type']"
+      [id]="field['id']"
+      [formControlName]="field['key']"
+      [required]="field['isRequired']"
+      [ngClass]="{ alert: !isValid && field['isRequired'] }"
+    >
   </label>
 </div>
