@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataSourceService } from '../../services/dataSource/data-source.service';
-import { BaseData } from '../../models/baseData/base-data';
+import { DataSourceService } from '../../services/page-one/dataSource/data-source.service';
+import { BaseData } from '../../models/page-one/baseData/base-data';
 
 @Component({
   selector: 'app-page-one',

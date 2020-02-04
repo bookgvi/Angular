@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { BaseData } from '../../../models/baseData/base-data';
+import { BaseData } from '../../../models/page-one/baseData/base-data';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class DynamicFieldComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
-  private isValid: boolean;
+  public isValid: boolean;
 
   constructor() {
     this.isValid = true;

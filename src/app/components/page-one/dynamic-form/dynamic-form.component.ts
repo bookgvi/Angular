@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BaseData } from '../../../models/baseData/base-data';
-import { FormControlService } from '../../../services/formControl/form-control.service';
+import { BaseData } from '../../../models/page-one/baseData/base-data';
+import { FormControlService } from '../../../services/page-one/formControl/form-control.service';
 import { FormGroup } from '@angular/forms';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BaseData } from '../../models/baseData/base-data';
-import { TextBox } from '../../models/textBox/text-box';
+import { BaseData } from '../../../models/page-one/baseData/base-data';
+import { TextBox } from '../../../models/page-one/textBox/text-box';
 
 @Injectable()
 export class DataSourceService {
