@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, FormArray, Validators, Form } from '@angular/forms';
 import { Observer, Subscription } from 'rxjs';
 
 @Component({
@@ -12,17 +12,51 @@ export class FormReactiveComponent implements OnInit, OnDestroy {
   private valueSubscription: Subscription;
   private statusSubscription: Subscription;
 
-  constructor() {
-    this.formGroup = new FormGroup({
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
-      address: new FormGroup({
-        street: new FormControl(''),
-        city: new FormControl(''),
-        state: new FormControl(''),
-        zip: new FormControl('')
-      })
+  constructor(private fb: FormBuilder) {
+    /**
+     *
+     * Manual form fills
+     *
+     */
+    // this.formGroup = new FormGroup({
+    //   firstName: new FormControl(''),
+    //   lastName: new FormControl(''),
+    //   address: new FormGroup({
+    //     street: new FormControl(''),
+    //     city: new FormControl(''),
+    //     state: new FormControl(''),
+    //     zip: new FormControl('')
+    //   })
+    // });
+    /**
+     *
+     * Form Builder
+     *
+     */
+    this.formGroup = fb.group({
+      firstName: [''],
+      lastName: ['', Validators.required],
+      address: fb.group({
+        city: [''],
+        state: [''],
+        zip: [''],
+        street: ['']
+      }),
+      /**
+       *
+       * Form Array
+       *
+       */
+      aliases: fb.array([
+        fb.control(''),
+        fb.control(''),
+        fb.control('')
+      ])
     });
+  }
+
+  get aliases(): FormArray {
+    return this.formGroup.get('aliases') as FormArray;
   }
 
   public onSubmit(): void {
@@ -38,9 +72,9 @@ export class FormReactiveComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.valueSubscription = this.formGroup.valueChanges.subscribe((value: Observer<string>) => {
-      console.log(value);
     });
     this.statusSubscription = this.formGroup.statusChanges.subscribe((value: Observer<any>) => {
+      console.log(value);
     });
   }
 

@@ -20,6 +20,7 @@
           id="lastName"
           formControlName="lastName"
           placeholder="Last name"
+          required
         >
       </label>
     </div>
@@ -48,6 +49,16 @@
           <span class="ui-inputgroup-addon"><i class="pi pi-tags"></i></span>
           <input pInputText formControlName="street" placeholder="Street">
         </label>
+      </div>
+    </div>
+    <div formArrayName="aliases">
+      <div *ngFor="let alias of aliases.controls; let i = index">
+        <div class="ui-g-12">
+          <label class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="pi pi-tags"></i></span>
+            <input pInputText [formControlName]="i" placeholder="Alias">
+          </label>
+        </div>
       </div>
     </div>
     <div class="ui-g-12">
