@@ -1,0 +1,5 @@
+<div [formGroup]="form">
+  <label [attr.for]="field['id']"> {{ field['key']}}
+    <input [type]="field['type']" [id]="field['id']" [formControlName]="field['key']">
+  </label>
+</div>
