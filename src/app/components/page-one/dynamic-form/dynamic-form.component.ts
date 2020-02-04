@@ -14,7 +14,7 @@ export class DynamicFormComponent implements OnInit {
   constructor(private fc: FormControlService) {
   }
 
-  @Input() text: BaseData<string>[] = [];
+  @Input() text: BaseData<string>[];
 
   private getForm(): FormGroup {
     return this.fc.generateForm(this.text);

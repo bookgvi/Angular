@@ -4,14 +4,13 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 @Injectable()
 export class FormControlService {
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   public generateForm(data): FormGroup {
     let group: any = {};
     data.forEach(item => {
-        group[item.key] = new FormControl(item.value);
+        group[item.key] = [item.value];
     })
-    console.log(data, group);
-    return new FormGroup(group);
+    return this.fb.group(group);
   }
 }
