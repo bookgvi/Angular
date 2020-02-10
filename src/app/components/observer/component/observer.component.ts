@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { InputSubject } from '../ObserverService/classes/inputSubject/input-subject';
 import { InputObserver } from '../ObserverService/classes/inputObserver/input-observer';
 
@@ -7,7 +7,7 @@ import { InputObserver } from '../ObserverService/classes/inputObserver/input-ob
   templateUrl: './observer.component.html',
   styleUrls: ['./observer.component.css']
 })
-export class ObserverComponent implements OnInit {
+export class ObserverComponent implements OnInit, OnDestroy {
   private input: HTMLInputElement;
   private eventHandler: boolean;
   private handler: (e: Event) => void;
@@ -24,8 +24,11 @@ export class ObserverComponent implements OnInit {
     this.attach();
   }
 
+  ngOnDestroy(): void {
+    this.killAllSubscribers();
+  }
+
   public detach(): void {
-    console.log();
     if (this.subject.observers.length) {
       this.subject.detach();
     }
@@ -41,6 +44,12 @@ export class ObserverComponent implements OnInit {
     this.subject.attach(new InputObserver());
     this.eventHandler ? this.input.addEventListener('input', this.handler) : '';
     this.eventHandler = false;
+  }
+
+  public killAllSubscribers(): void {
+    Array.apply(null, { length: this.subject.observers.length }).forEach((_, index: number) => {
+      this.detach();
+    })
   }
 
   private hInput(e: Event): void {
