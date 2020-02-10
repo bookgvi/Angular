@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { InputSubject } from '../ObserverService/classes/inputSubject/input-subject';
 import { InputObserver } from '../ObserverService/classes/inputObserver/input-observer';
 
@@ -7,32 +7,57 @@ import { InputObserver } from '../ObserverService/classes/inputObserver/input-ob
   templateUrl: './observer.component.html',
   styleUrls: ['./observer.component.css']
 })
-export class ObserverComponent implements OnInit {
+export class ObserverComponent implements OnInit, OnDestroy {
   private input: HTMLInputElement;
+  private eventHandler: boolean;
+  private handler: (e: Event) => void;
   public subject: InputSubject;
-  constructor() { }
+
+  constructor() {
+    this.eventHandler = true;
+  }
 
   ngOnInit(): void {
     this.input = document.getElementById('input1') as HTMLInputElement;
-    this.inputObserver();
+    this.subject = new InputSubject();
+    this.handler = this.hInput.bind(this.subject);
+    this.attach();
   }
 
-  inputObserver(): void {
-    this.subject = new InputSubject();
-    const observer1: InputObserver = new InputObserver();
-    const observer2: InputObserver = new InputObserver();
-    const observer3: InputObserver = new InputObserver();
-    this.subject.inputEventListener(this.input);
-    this.subject.attach(observer1);
-    this.subject.attach(observer2);
-    this.subject.attach(observer3);
+  ngOnDestroy(): void {
+    this.killAllSubscribers();
   }
 
   public detach(): void {
-    this.subject.detach(this.input);
+    if (this.subject.observers.length) {
+      this.subject.detach();
+    }
+    if (!this.subject.observers.length && !this.eventHandler) {
+      this.input.removeEventListener('input', this.handler);
+      this.eventHandler = true
+      console.log('Подписчиков не осталось :(')
+    }
+
   }
 
   public attach(): void {
     this.subject.attach(new InputObserver());
+    this.eventHandler ? this.input.addEventListener('input', this.handler) : '';
+    this.eventHandler = false;
   }
+
+  public killAllSubscribers(): void {
+    Array.apply(null, { length: this.subject.observers.length }).forEach((_, index: number) => {
+      this.detach();
+    })
+  }
+
+  private hInput(e: Event): void {
+    // @ts-ignore
+    this.state = e.target.value;
+    // @ts-ignore
+    this.notify();
+  }
+
 }
+

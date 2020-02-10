@@ -3,7 +3,7 @@ import { Observer } from './observer';
 export interface Subject {
   attach(observer: Observer): void;
 
-  detach(htmlTag: HTMLElement): void;
+  detach(): void;
 
   notify(): void;
 }
