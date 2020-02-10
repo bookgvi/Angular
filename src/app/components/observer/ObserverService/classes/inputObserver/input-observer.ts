@@ -4,6 +4,6 @@ import { Subject } from '../../interfaces/subject';
 export class InputObserver implements Observer{
   update(subject: Subject): void {
     // @ts-ignore
-    console.log('Observer: ', subject.state.data);
+    console.log('ObserverService: ', subject.state.data);
   }
 }

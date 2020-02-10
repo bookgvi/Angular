@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { InputSubject } from '../model/classes/inputSubject/input-subject';
-import { InputObserver } from '../model/classes/inputObserver/input-observer';
+import { InputSubject } from '../ObserverService/classes/inputSubject/input-subject';
+import { InputObserver } from '../ObserverService/classes/inputObserver/input-observer';
 
 @Component({
   selector: 'app-observer',
@@ -9,6 +9,7 @@ import { InputObserver } from '../model/classes/inputObserver/input-observer';
 })
 export class ObserverComponent implements OnInit {
   private input: HTMLInputElement;
+  public subject: InputSubject;
   constructor() { }
 
   ngOnInit(): void {
@@ -17,13 +18,21 @@ export class ObserverComponent implements OnInit {
   }
 
   inputObserver(): void {
-    const subject: InputSubject = new InputSubject();
+    this.subject = new InputSubject();
     const observer1: InputObserver = new InputObserver();
     const observer2: InputObserver = new InputObserver();
     const observer3: InputObserver = new InputObserver();
-    subject.hInput(this.input);
-    subject.attach(observer1);
-    subject.attach(observer2);
-    subject.attach(observer3);
+    this.subject.inputEventListener(this.input);
+    this.subject.attach(observer1);
+    this.subject.attach(observer2);
+    this.subject.attach(observer3);
+  }
+
+  public detach(): void {
+    this.subject.detach(this.input);
+  }
+
+  public attach(): void {
+    this.subject.attach(new InputObserver());
   }
 }
