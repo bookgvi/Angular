@@ -47,7 +47,7 @@ export class ObserverComponent implements OnInit, OnDestroy {
   }
 
   public killAllSubscribers(): void {
-    Array.apply(null, { length: this.subject.observers.length }).forEach((_, index: number) => {
+    Array.apply(null, { length: this.subject.observers.length }).forEach(() => {
       this.detach();
     })
   }
