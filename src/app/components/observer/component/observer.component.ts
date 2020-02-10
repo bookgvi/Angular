@@ -9,30 +9,46 @@ import { InputObserver } from '../ObserverService/classes/inputObserver/input-ob
 })
 export class ObserverComponent implements OnInit {
   private input: HTMLInputElement;
+  private eventHandler: boolean;
+  private handler: (e: Event) => void;
   public subject: InputSubject;
-  constructor() { }
+
+  constructor() {
+    this.eventHandler = true;
+  }
 
   ngOnInit(): void {
     this.input = document.getElementById('input1') as HTMLInputElement;
-    this.inputObserver();
-  }
-
-  inputObserver(): void {
     this.subject = new InputSubject();
-    const observer1: InputObserver = new InputObserver();
-    const observer2: InputObserver = new InputObserver();
-    const observer3: InputObserver = new InputObserver();
-    this.subject.inputEventListener(this.input);
-    this.subject.attach(observer1);
-    this.subject.attach(observer2);
-    this.subject.attach(observer3);
+    this.handler = this.hInput.bind(this.subject);
+    this.attach();
   }
 
   public detach(): void {
-    this.subject.detach(this.input);
+    console.log();
+    if (this.subject.observers.length) {
+      this.subject.detach();
+    }
+    if (!this.subject.observers.length && !this.eventHandler) {
+      this.input.removeEventListener('input', this.handler);
+      this.eventHandler = true
+      console.log('Подписчиков не осталось :(')
+    }
+
   }
 
   public attach(): void {
     this.subject.attach(new InputObserver());
+    this.eventHandler ? this.input.addEventListener('input', this.handler) : '';
+    this.eventHandler = false;
   }
+
+  private hInput(e: Event): void {
+    // @ts-ignore
+    this.state = e.target.value;
+    // @ts-ignore
+    this.notify();
+  }
+
 }
+
