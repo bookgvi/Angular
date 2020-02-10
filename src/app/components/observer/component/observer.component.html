@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="col">
+    <label for="input1">
+      <input id="input1" type="text" class="w-100">
+    </label>
+  </div>
+  <div class="col">
+    <button (click)="detach()" style="text-align: left">Отписаться</button>
+    <button (click)="attach()" style="text-align: right">Подписаться ({{ subject.observers.length }})</button>
+  </div>
+</div>
